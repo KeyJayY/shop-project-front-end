@@ -1,0 +1,33 @@
+.header {
+  width: 100%;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0 auto;
+}
+
+.userMenu a {
+  color: white;
+  text-decoration: none;
+}
+
+.userMenu div:hover a {
+  color: black;
+}
+
+.userMenu div:hover {
+  background-color: white;
+  cursor: pointer;
+  color: black;
+}
+
+/*# sourceMappingURL=Header.module.css.map */

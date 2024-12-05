@@ -1,0 +1,18 @@
+.main {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginBox {
+  min-height: 60%;
+  min-width: 60%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/*# sourceMappingURL=LoginPage.module.css.map */
