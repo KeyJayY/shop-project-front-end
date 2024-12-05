@@ -10,10 +10,8 @@ function Header({userBar}) {
             <h1 className={stylesHeader.title}>My App</h1>
             {userBar ?
                 <div className={stylesHeader.userMenu}>
-                    {!isAuthenticated ? <div><a href={"/login"}>login</a></div> : <div><a href={"/userPage"}>my
-                    account</a></div>}
-                    {!isAuthenticated ? <div><a href={"/register"}>register</a></div> :
-                    <div className={stylesHeader.btn} onClick={logout}>logout</div>}
+                    {!isAuthenticated ? <><div><a href={"/login"}>login</a></div><div><a href={"/register"}>register</a></div></> : <><div><a href={"/userPage"}>my
+                    account</a></div><div className={stylesHeader.btn} onClick={logout}>logout</div></>}
                 </div> : null}
         </header>
     );

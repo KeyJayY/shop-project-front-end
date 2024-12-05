@@ -24,7 +24,6 @@ function RegisterPage() {
         const {confirmPassword, ...dataToSend} = formData;
         if (formData.password === formData.confirmPassword) {
             const result = await axios.post("/register", dataToSend);
-            console.log(result);
         }
     }
 

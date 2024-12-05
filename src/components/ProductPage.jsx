@@ -9,14 +9,21 @@ function ProductPage() {
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
-    useEffect(async () => {
-        setData((await axios.get(`/api/product/${id}`, {id})).data);
-        setLoading(false);
+    useEffect( () => {
+        const fetchData = async () => {
+            try{
+                setData((await axios.get(`/api/product/${id}`, {id})).data);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchData();
     }, [])
 
     if(loading)
         return <>loading...</>;
-
 
     return (
         <>

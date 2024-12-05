@@ -2,7 +2,6 @@ import styleStoreItem from './StoreItem.module.scss';
 import PropTypes from "prop-types";
 
 function StoreItem(props) {
-    console.log(props);
     return (
         <div className={styleStoreItem.storeItem}>
             <img alt={props.product.name} src="/test.png" className={styleStoreItem.itemImage} />
