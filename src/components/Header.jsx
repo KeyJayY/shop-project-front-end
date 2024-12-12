@@ -7,7 +7,7 @@ function Header({userBar}) {
     const {isAuthenticated, logout} = useAuth();
     return (
         <header className={stylesHeader.header}>
-            <h1 className={stylesHeader.title}>My App</h1>
+            <h1 className={stylesHeader.title}><a href={"/"}>My App</a></h1>
             {userBar ?
                 <div className={stylesHeader.userMenu}>
                     {!isAuthenticated ? <><div><a href={"/login"}>login</a></div><div><a href={"/register"}>register</a></div></> : <><div><a href={"/userPage"}>my

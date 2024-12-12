@@ -10,6 +10,10 @@
   align-items: center;
   justify-content: space-between;
 }
+.header a {
+  color: white;
+  text-decoration: none;
+}
 
 .title {
   margin: 0 auto;
@@ -19,14 +23,12 @@
   color: white;
   text-decoration: none;
 }
-
-.userMenu div:hover a {
-  color: black;
-}
-
 .userMenu div:hover {
   background-color: white;
   cursor: pointer;
+  color: black;
+}
+.userMenu div:hover a {
   color: black;
 }
 

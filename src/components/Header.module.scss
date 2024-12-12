@@ -9,25 +9,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
-.title{
+.title {
   margin: 0 auto;
 }
 
-.userMenu a{
-  color: white;
-  text-decoration: none;
+.userMenu {
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  div:hover {
+    background-color: white;
+    cursor: pointer;
+    color: black;
+    a {
+      color: black;
+    }
+  }
 }
 
-.userMenu div:hover a{
-  color: black;
-}
-
-.userMenu div:hover{
-  background-color: white;
-  cursor: pointer;
-  color: black;
-}
 
 

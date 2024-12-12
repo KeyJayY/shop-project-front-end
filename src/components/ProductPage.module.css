@@ -10,4 +10,8 @@
   background-color: blue;
 }
 
+.amountCounter {
+  display: flex;
+}
+
 /*# sourceMappingURL=ProductPage.module.css.map */
