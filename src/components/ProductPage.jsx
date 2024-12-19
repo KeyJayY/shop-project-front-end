@@ -43,23 +43,25 @@ function ProductPage() {
     return (
         <>
         <Header />
-            <main>
+            <main className={stylesProductPage.productContainer}>
                 <header className={stylesProductPage.productHeader}>
-                    <h1>{data.name}</h1>
-                    <h2>{data.category}</h2>
-                </header>
-                <article className={stylesProductPage.product}>
-                    <img/>
-                    <div>
-                        <div>{data.price}</div>
-                        <div>{data.description}</div>
-                        <div className={stylesProductPage.amountCounter}>
-                        <button onClick={() => {setAmount(Math.max(0, amount - 1))}}>&lt;</button>{amount}<button onClick={() => {setAmount(amount + 1)}}>&gt;</button>
+                    <img src={"https://via.placeholder.com/200"} alt={"zdjecie produktu"}/>
+                    <div className={stylesProductPage.productDetails}>
+                        <h1>{data.name}</h1>
+                        <div className={stylesProductPage.category}>
+                            {data.category}
                         </div>
-                        <button onClick={addToCart}>Dodaj do koszyka</button>
+                        <div className={stylesProductPage.price}>{data.price}</div>
+                        <div className={stylesProductPage.description}>{data.description}</div>
+                        <span>{data.grade}/5</span>
+                        <div className={stylesProductPage.quantityControls}>
+                            <button onClick={() => {setAmount(Math.max(1, amount-1))}}>-</button>
+                            <input type="text" className={stylesProductPage.quantity} value={amount} readOnly/>
+                            <button onClick={() => {setAmount(Math.min(amount+1, 999))}}>+</button>
+                        </div>
+                        <button className={stylesProductPage.addToCart} onClick={addToCart}>Dodaj do koszyka</button>
                     </div>
-                </article>
-                <div className={stylesProductPage.commentSection}></div>
+                </header>
                 <CommentsBox id={id}/>
             </main>
         </>

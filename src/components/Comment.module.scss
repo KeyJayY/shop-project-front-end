@@ -1,0 +1,17 @@
+.comment {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  color: #555;
+  .starRating {
+    display: inline-block;
+    color: #ffcc00;
+    margin-left: 10px;
+  }
+  .author {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+}

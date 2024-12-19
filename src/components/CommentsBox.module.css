@@ -1,0 +1,64 @@
+.commentsSection {
+  margin-top: 30px;
+  width: 100%;
+  max-height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.addComment {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+}
+.addComment textarea {
+  width: 100%;
+  height: 60px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  resize: none;
+}
+.addComment button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.addComment button:hover {
+  background-color: #0056b3;
+}
+.addComment .starRating {
+  margin: 10px 0;
+  display: flex;
+  gap: 5px;
+  color: #ddd;
+  font-size: 20px;
+  cursor: pointer;
+  flex-direction: row-reverse;
+}
+.addComment .starRating .filledStar {
+  color: #ffcc00;
+}
+.addComment .starRating:hover .filledStar {
+  color: #ddd;
+}
+.addComment .starRating:hover .filledStar:hover {
+  color: #ffcc00;
+}
+.addComment .starRating span:hover, .addComment .starRating span:hover ~ span, .addComment .starRating span:hover ~ .filledStar {
+  color: #ffcc00;
+}
+
+/*# sourceMappingURL=CommentsBox.module.css.map */

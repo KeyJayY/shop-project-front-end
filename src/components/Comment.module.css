@@ -1,0 +1,19 @@
+.comment {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  color: #555;
+}
+.comment .starRating {
+  display: inline-block;
+  color: #ffcc00;
+  margin-left: 10px;
+}
+.comment .author {
+  font-weight: bold;
+  margin-right: 5px;
+}
+.comment:last-child {
+  border-bottom: none;
+}
+
+/*# sourceMappingURL=Comment.module.css.map */
