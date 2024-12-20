@@ -2,6 +2,7 @@ import Header from '@components/Layout/Header';
 import stylesRegisterPage from './RegisterPage.module.scss'
 import {useState} from 'react';
 import axios from "axios";
+import FormGroup from "@components/Common/FormGroup";
 
 function RegisterPage() {
     const [formData, setFormData] = useState({
@@ -31,50 +32,18 @@ function RegisterPage() {
         <>
             <Header userBar={false}/>
             <main className={stylesRegisterPage.main}>
-                <div className={stylesRegisterPage.registerBox}>
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <input type="text" name="firstName" id="firstName" placeholder="firstName"
-                                   value={formData.firstName} onChange={handleChange}/>
-                            <label htmlFor="firstName">first name</label>
-                        </div>
-                        <div>
-                            <input type="text" name="lastName" id="lastName" placeholder="lastName"
-                                   value={formData.lastName} onChange={handleChange}/>
-                            <label htmlFor="lastName">last name</label>
-                        </div>
-                        <div>
-                            <input type="text" name="email" id="email" placeholder="email" value={formData.email}
-                                   onChange={handleChange}/>
-                            <label htmlFor="email">email</label>
-                        </div>
-                        <div>
-                            <input type="text" name="address" id="address" placeholder="address"
-                                   value={formData.address}
-                                   onChange={handleChange}/>
-                            <label htmlFor="address">address</label>
-                        </div>
-                        <div>
-                            <input type="text" name="city" id="city" placeholder="city" value={formData.city}
-                                   onChange={handleChange}/>
-                            <label htmlFor="city">city</label>
-                        </div>
-                        <div>
-                            <input type="date" name="dateOfBirth" id="dateOfBirth" placeholder="date of birth"
-                                   value={formData.dateOfBirth} onChange={handleChange}/>
-                            <label htmlFor="dateOfBirth">city</label>
-                        </div>
-                        <div>
-                            <input type="password" name="password" id="password" placeholder="Password"
-                                   value={formData.password} onChange={handleChange}/>
-                            <label htmlFor="password">password</label>
-                        </div>
-                        <div>
-                            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="password"
-                                   value={formData.confirmPassword} onChange={handleChange}/>
-                            <label htmlFor="confirmPassword">confirm password</label>
-                        </div>
-                        <input type="submit"/>
+                <div className={stylesRegisterPage.registrationContainer}>
+                    <form onSubmit={handleSubmit} className={stylesRegisterPage.registrationForm}>
+                        <h1 className={stylesRegisterPage.formTitle}>Rejestracja</h1>
+                        <FormGroup name="firstName" type="text" label="imie" value={formData.firstName} onChange={handleChange} />
+                        <FormGroup name="lastName" type="text" label="Nazwisko" value={formData.lastName} onChange={handleChange} />
+                        <FormGroup name="email" type="email" label="email" value={formData.email} onChange={handleChange} />
+                        <FormGroup name="address" type="text" label="addres" value={formData.address} onChange={handleChange} />
+                        <FormGroup name="city" type="text" label="miasto" value={formData.city} onChange={handleChange} />
+                        <FormGroup name="dateOfBirth" type="date" label="data urodzenia" value={formData.dateOfBirth} onChange={handleChange} />
+                        <FormGroup name="password" type="password" label="hasło" value={formData.password} onChange={handleChange} />
+                        <FormGroup name="confirmPassword" type="password" label="potwierdź hasło" value={formData.confirmPassword} onChange={handleChange} />
+                        <input type="submit" className={stylesRegisterPage.submitButton}/>
                     </form>
                 </div>
             </main>
