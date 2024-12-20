@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import CartItem from './CartItem'
+import CartItem from './components/CartItem'
 import stylesCart from './Cart.module.scss'
 
 function Cart() {

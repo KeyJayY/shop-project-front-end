@@ -1,6 +1,6 @@
 import stylesHeader from './Header.module.scss';
 import PropTypes from "prop-types";
-import {useAuth} from "./AuthProvider.jsx";
+import {useAuth} from "@src/AuthProvider.jsx";
 
 
 function Header({userBar}) {

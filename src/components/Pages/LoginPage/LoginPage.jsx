@@ -1,10 +1,10 @@
-import Header from './Header';
+import Header from '@components/Layout/Header';
 import stylesLoginPage from './LoginPage.module.scss'
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import { useAuth } from './AuthProvider.jsx';
+import { useAuth } from '@src/AuthProvider.jsx';
 import { Navigate } from "react-router-dom";
-import {verifyToken} from "./verifyToken.js";
+import {verifyToken} from "../../../utils/verifyToken.js";
 
 
 function LoginPage() {

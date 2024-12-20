@@ -1,5 +1,5 @@
-import Header from './Header.jsx';
-import CommentsBox from './CommentsBox';
+import Header from '@components/Layout/Header';
+import CommentsBox from './components/CommentsBox';
 import {useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
 import axios from 'axios';

@@ -1,8 +1,8 @@
-import Header from './Header.jsx';
-import Sidebar from "./Sidebar.jsx";
-import StoreItem from './StoreItem.jsx';
+import Header from '@components/Layout/Header';
+import Sidebar from "@components/Layout/Sidebar";
+import StoreItem from './components/StoreItem';
 import appStyle from './MainPage.module.scss';
-import {useAuth} from "./AuthProvider.jsx";
+import {useAuth} from "@src/AuthProvider.jsx";
 import {useState, useEffect} from "react";
 
 function MainPage() {

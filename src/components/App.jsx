@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
-import MainPage from "./MainPage.jsx";
-import LoginPage from "./LoginPage.jsx";
-import RegisterPage from "./RegisterPage.jsx";
-import { AuthProvider, useAuth } from "./AuthProvider.jsx";
+import MainPage from "./Pages/MainPage";
+import LoginPage from "./Pages/LoginPage";
+import RegisterPage from "./Pages/RegisterPage";
+import { AuthProvider, useAuth } from "@src/AuthProvider.jsx";
 import {useEffect, useState} from "react";
-import {verifyToken} from "./verifyToken.js";
-import ProductPage from "./ProductPage.jsx";
-import UserPage from "./UserPage.jsx";
+import {verifyToken} from "@utils/verifyToken.js";
+import ProductPage from "./Pages/ProductPage";
+import UserPage from "./Pages/UserPage";
 
 function App() {
 

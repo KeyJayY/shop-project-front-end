@@ -1,9 +1,9 @@
-import Header from './Header.jsx';
+import Header from '../../Layout/Header';
 import {useState, useEffect} from "react";
 import axios from 'axios';
-import {useAuth} from "./AuthProvider.jsx";
+import {useAuth} from "../../../AuthProvider.jsx";
 import {Navigate, useNavigate} from "react-router-dom";
-import Cart from "./Cart";
+import Cart from "./components/Cart";
 import stylesUserPage from "./UserPage.module.scss"
 
 

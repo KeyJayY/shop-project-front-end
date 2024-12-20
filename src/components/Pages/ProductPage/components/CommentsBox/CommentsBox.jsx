@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import PropTypes from "prop-types";
-import Comment from "./Comment";
+import Comment from "./components/Comment";
 import stylesCommentsBox from "./CommentsBox.module.scss"
 import axios from "axios";
 

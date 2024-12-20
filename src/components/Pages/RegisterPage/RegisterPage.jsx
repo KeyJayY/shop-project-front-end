@@ -1,4 +1,4 @@
-import Header from './Header';
+import Header from '@components/Layout/Header';
 import stylesRegisterPage from './RegisterPage.module.scss'
 import {useState} from 'react';
 import axios from "axios";

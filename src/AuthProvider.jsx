@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
-import {verifyToken} from "./verifyToken.js";
+import {verifyToken} from "@src/utils/verifyToken.js";
 
 const AuthContext = createContext();
 
