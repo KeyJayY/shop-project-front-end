@@ -1,8 +1,27 @@
-.categoryNavigation {
-  left: 0;
-  background-color: black;
-  color: white;
-  min-width: 20%;
+.sidebar {
+  width: 200px;
+  background-color: #333;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebarList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebarListItem {
+  padding: 5px 40px 5px 10px;
+  width: 100%;
+  margin: 0;
+  color: #ffffff;
+}
+.sidebarListItem a {
+  text-decoration: none;
+}
+.sidebarListItem:hover {
+  background-color: #ddd;
+  color: #000000;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=Sidebar.module.css.map */

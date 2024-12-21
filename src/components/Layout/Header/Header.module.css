@@ -19,17 +19,19 @@
   margin: 0 auto;
 }
 
-.userMenu a {
+.headerButtons {
+  display: flex;
+  gap: 10px;
+}
+.headerButtons button {
+  padding: 10px 15px;
+  background-color: #555;
   color: white;
-  text-decoration: none;
-}
-.userMenu div:hover {
-  background-color: white;
+  border: none;
   cursor: pointer;
-  color: black;
 }
-.userMenu div:hover a {
-  color: black;
+.headerButtons button:hover {
+  background-color: #777;
 }
 
 /*# sourceMappingURL=Header.module.css.map */

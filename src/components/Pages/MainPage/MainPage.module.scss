@@ -1,13 +1,47 @@
-.main{
+.main {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.searchBar {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.container {
   display: flex;
 }
 
-.itemsContainer{
-  display: flex;
+.searchBar input {
   flex: 1;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
+.sortButtons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
 
+.sortButtons button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sortButtons button:hover {
+  background-color: #0056b3;
+}
+
+.itemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

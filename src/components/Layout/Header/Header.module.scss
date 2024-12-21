@@ -19,17 +19,17 @@
   margin: 0 auto;
 }
 
-.userMenu {
-  a {
+.headerButtons {
+  display: flex;
+  gap: 10px;
+  button {
+    padding: 10px 15px;
+    background-color: #555;
     color: white;
-    text-decoration: none;
-  }
-  div:hover {
-    background-color: white;
+    border: none;
     cursor: pointer;
-    color: black;
-    a {
-      color: black;
+    &:hover {
+      background-color: #777;
     }
   }
 }

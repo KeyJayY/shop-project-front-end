@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 function StoreItem(props) {
     return (
         <div className={styleStoreItem.storeItem}>
-            <img alt={props.product.name} src="/test.png" className={styleStoreItem.itemImage} />
-            <div className={styleStoreItem.nameBox}>{props.product.name}</div>
-            <div className={styleStoreItem.priceBox}>{props.product.price}</div>
-            <button className={styleStoreItem.buyButton}><a href={`/product/${props.product.product_id}`}>KUP</a></button>
+            <img alt={props.product.name} src="https://via.placeholder.com/200" />
+            <h3 className={styleStoreItem.productTitle}>{props.product.name}</h3>
+            <p className={styleStoreItem.productPrice}>{props.product.price}</p>
+            <button className={styleStoreItem.productButton}><a href={`/product/${props.product.product_id}`}>KUP</a></button>
         </div>
     )
 }

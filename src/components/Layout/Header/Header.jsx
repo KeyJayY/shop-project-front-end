@@ -9,9 +9,9 @@ function Header({userBar}) {
         <header className={stylesHeader.header}>
             <h1 className={stylesHeader.title}><a href={"/"}>My App</a></h1>
             {userBar ?
-                <div className={stylesHeader.userMenu}>
-                    {!isAuthenticated ? <><div><a href={"/login"}>login</a></div><div><a href={"/register"}>register</a></div></> : <><div><a href={"/userPage"}>my
-                    account</a></div><div className={stylesHeader.btn} onClick={logout}>logout</div></>}
+                <div className={stylesHeader.headerButtons}>
+                    {!isAuthenticated ? <><button><a href={"/login"}>login</a></button><button><a href={"/register"}>register</a></button></> : <><button><a href={"/userPage"}>my
+                    account</a></button><button className={stylesHeader.btn} onClick={logout}>logout</button></>}
                 </div> : null}
         </header>
     );
