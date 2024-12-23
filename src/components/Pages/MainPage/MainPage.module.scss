@@ -11,6 +11,8 @@
 
 .container {
   display: flex;
+  width: 100%;
+  flex-grow: 1;
 }
 
 .searchBar input {
@@ -25,19 +27,30 @@
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-}
-
-.sortButtons button {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.sortButtons button:hover {
-  background-color: #0056b3;
+  justify-content: flex-end;
+  align-items: center;
+  button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #007bff;
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+  .clicked{
+    background-color: white;
+    color: #007bff;
+    border: 2px solid #007bff;
+    &:hover{
+      background-color: #dddddd;
+    }
+  }
+  p{
+    height: auto;
+  }
 }
 
 .itemsContainer {

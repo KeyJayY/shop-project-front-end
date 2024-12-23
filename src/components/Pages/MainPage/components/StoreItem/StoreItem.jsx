@@ -7,9 +7,12 @@ function StoreItem(props) {
             <img alt={props.product.name} src="https://via.placeholder.com/200" />
             <h3 className={styleStoreItem.productTitle}>{props.product.name}</h3>
             <p className={styleStoreItem.productPrice}>{props.product.price}</p>
-            <button className={styleStoreItem.productButton}><a href={`/product/${props.product.product_id}`}>KUP</a></button>
-        </div>
-    )
+            <a href={`/product/${props.product.product_id}`}>
+                <button className={styleStoreItem.productButton}>KUP
+            </button>
+            </a>
+</div>
+)
 }
 
 StoreItem.propTypes = {

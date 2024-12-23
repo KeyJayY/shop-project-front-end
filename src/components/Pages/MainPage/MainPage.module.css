@@ -11,6 +11,8 @@
 
 .container {
   display: flex;
+  width: 100%;
+  flex-grow: 1;
 }
 
 .searchBar input {
@@ -25,19 +27,30 @@
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  justify-content: flex-end;
+  align-items: center;
 }
-
 .sortButtons button {
   padding: 10px 15px;
   background-color: #007bff;
   color: white;
-  border: none;
   cursor: pointer;
   border-radius: 5px;
+  border: 2px solid #007bff;
 }
-
 .sortButtons button:hover {
   background-color: #0056b3;
+}
+.sortButtons .clicked {
+  background-color: white;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+.sortButtons .clicked:hover {
+  background-color: #dddddd;
+}
+.sortButtons p {
+  height: auto;
 }
 
 .itemsContainer {

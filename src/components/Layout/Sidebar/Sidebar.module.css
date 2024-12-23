@@ -24,4 +24,9 @@
   cursor: pointer;
 }
 
+.clicked {
+  background-color: white;
+  color: black;
+}
+
 /*# sourceMappingURL=Sidebar.module.css.map */
