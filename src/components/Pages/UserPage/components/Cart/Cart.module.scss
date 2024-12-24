@@ -7,7 +7,7 @@
   padding: 10px;
   background: #fafafa;
 
-  .order-btn {
+  .orderBtn {
     display: block;
     margin: 20px auto 0;
     padding: 10px 20px;
@@ -20,7 +20,7 @@
     text-align: center;
   }
 
-  .order-btn:hover {
+  .orderBtn:hover {
     background: #218838;
   }
 
@@ -29,6 +29,12 @@
     font-size: 1.2rem;
     color: #333;
     text-align: center;
+  }
+
+  .orderForm{
+    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
   }
 }
 

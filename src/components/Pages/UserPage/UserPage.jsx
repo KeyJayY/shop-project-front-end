@@ -5,6 +5,7 @@ import {useAuth} from "../../../AuthProvider.jsx";
 import {Navigate, useNavigate} from "react-router-dom";
 import Cart from "./components/Cart";
 import stylesUserPage from "./UserPage.module.scss"
+import History from "./components/History";
 
 
 function UserPage() {
@@ -63,32 +64,46 @@ function UserPage() {
     return (
         <>
             <Header userBar={false}/>
-            <header className={stylesUserPage.header}>
-                {`panel użytkownika ${data.email}`}
-            </header>
             <main className={stylesUserPage.userPanel}>
-
-                <div className={stylesUserPage.userDetails}>
-                    <p><strong>imie: </strong>{editing ? <input type={"text"} name="first_name" value={editedData.first_name} onChange={handleInputChange}/> : data.first_name}</p>
-                    <p><strong>nazwisko: </strong>{editing ? <input type={"text"} name="last_name" value={editedData.last_name} onChange={handleInputChange}/> : data.last_name}</p>
-                    <p><strong>miasto: </strong>{editing ? <input type={"text"} name="address_city" value={editedData.address_city} onChange={handleInputChange}/> : data.address_city}</p>
-                    <p><strong>adres: </strong>{editing ? <input type={"text"} name="address" value={editedData.address} onChange={handleInputChange}/> : data.address}</p>
-                    <p><strong>data urodzenia: </strong>{editing ?
-                        <input type={"date"} name="birth_date" value={new Date(editedData.birth_date).toISOString().split('T')[0]} onChange={handleInputChange}/> : new Intl.DateTimeFormat('pl-PL', {
-                            day: "2-digit",
-                            month: "2-digit",
-                            year: "numeric"
-                        }).format(new Date(data.birth_date))}</p>
-                    {editing ? <>
-                            <button className={stylesUserPage.editButton} onClick={handleSave}>Zapisz</button>
-                            <button className={stylesUserPage.editButton} onClick={() => {setEditing(false)}}>Anuluj</button>
-                        </>
-                        : <button className={stylesUserPage.editButton} onClick={() => {
-                            setEditing(!editing)
-                            setEditedData(data)
-                        }}>Edytuj</button>}
+                <header className={stylesUserPage.header}>
+                    {`panel użytkownika ${data.email}`}
+                </header>
+                <div className={stylesUserPage.content}>
+                    <div className={stylesUserPage.userDetails}>
+                        <p><strong>imie: </strong>{editing ?
+                            <input type={"text"} name="first_name" value={editedData.first_name}
+                                   onChange={handleInputChange}/> : data.first_name}</p>
+                        <p><strong>nazwisko: </strong>{editing ?
+                            <input type={"text"} name="last_name" value={editedData.last_name}
+                                   onChange={handleInputChange}/> : data.last_name}</p>
+                        <p><strong>miasto: </strong>{editing ?
+                            <input type={"text"} name="address_city" value={editedData.address_city}
+                                   onChange={handleInputChange}/> : data.address_city}</p>
+                        <p><strong>adres: </strong>{editing ? <input type={"text"} name="address" value={editedData.address}
+                                                                     onChange={handleInputChange}/> : data.address}</p>
+                        <p><strong>data urodzenia: </strong>{editing ?
+                            <input type={"date"} name="birth_date"
+                                   value={new Date(editedData.birth_date).toISOString().split('T')[0]}
+                                   onChange={handleInputChange}/> : new Intl.DateTimeFormat('pl-PL', {
+                                day: "2-digit",
+                                month: "2-digit",
+                                year: "numeric"
+                            }).format(new Date(data.birth_date))}</p>
+                        {editing ? <>
+                                <button className={stylesUserPage.editButton} onClick={handleSave}>Zapisz</button>
+                                <button className={stylesUserPage.editButton} onClick={() => {
+                                    setEditing(false)
+                                }}>Anuluj
+                                </button>
+                            </>
+                            : <button className={stylesUserPage.editButton} onClick={() => {
+                                setEditing(!editing)
+                                setEditedData(data)
+                            }}>Edytuj</button>}
+                    </div>
+                    <Cart/>
                 </div>
-                <Cart/>
+                <History/>
             </main>
         </>
     );

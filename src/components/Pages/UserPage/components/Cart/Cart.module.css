@@ -7,7 +7,7 @@
   padding: 10px;
   background: #fafafa;
 }
-.cart .order-btn {
+.cart .orderBtn {
   display: block;
   margin: 20px auto 0;
   padding: 10px 20px;
@@ -19,7 +19,7 @@
   font-size: 1rem;
   text-align: center;
 }
-.cart .order-btn:hover {
+.cart .orderBtn:hover {
   background: #218838;
 }
 .cart h2 {
@@ -27,6 +27,11 @@
   font-size: 1.2rem;
   color: #333;
   text-align: center;
+}
+.cart .orderForm {
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 /*# sourceMappingURL=Cart.module.css.map */

@@ -8,11 +8,17 @@
 
 .userPanel {
   width: 80%;
+  max-width: 900px;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
+}
+
+.content {
+  padding: 20px;
   display: flex;
+  gap: 20px;
 }
 
 .userDetails {
