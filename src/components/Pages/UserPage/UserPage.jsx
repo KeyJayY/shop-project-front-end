@@ -101,7 +101,7 @@ function UserPage() {
                                 setEditedData(data)
                             }}>Edytuj</button>}
                     </div>
-                    <Cart/>
+                    <Cart address={data.address} city={data.address_city}/>
                 </div>
                 <History/>
             </main>

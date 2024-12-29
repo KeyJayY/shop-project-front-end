@@ -1,3 +1,11 @@
-
+.orderHistory {
+  margin-top: 20px;
+}
+.orderHistory h2 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+}
 
 /*# sourceMappingURL=Histroy.module.css.map */

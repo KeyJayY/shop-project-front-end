@@ -5,12 +5,12 @@ import stylesCart from './Cart.module.scss'
 import FormGroup from '@components/Common/FormGroup'
 import PropTypes  from "prop-types";
 
-function Cart() {
+function Cart(props) {
     const [cartItems, setCartItems] = useState([])
     const [orderActive, setOrderActive] = useState(false)
     const [orderData, setOrderData] = useState({
-        address: "",
-        city: "",
+        address: props.address,
+        city: props.city,
         code: ""
     })
 
@@ -20,6 +20,13 @@ function Cart() {
             .then(res => {
                 setCartItems(res.data)
             })
+    }
+
+    const handleOrder = () => {
+        const token = localStorage.getItem('token')
+        axios.put("/api/order",  orderData, {headers: {Authorization: `Bearer ${token}`}}).then(res => {
+            console.log(res)
+        })
     }
 
     useEffect(() => {
@@ -50,14 +57,17 @@ function Cart() {
                            onChange={() => setOrderData({city: orderData.city, ...orderData})}/>
                 <FormGroup type="text" name="code" label="kod zniżkowy" value={orderData.code}
                            onChange={() => setOrderData({code: orderData.code, ...orderData})}/>
-                <button className={stylesCart.orderBtn} onClick={() => {
-                    setOrderActive(!orderActive)
-                }}>Zamów
+                <button className={stylesCart.orderBtn} onClick={handleOrder}>Zamów
                 </button>
             </form> :
-            <button className={stylesCart.orderBtn} onClick={() => setOrderActive(!orderActive)}>Zamów</button>
+            cartItems.length !== 0 ? <button className={stylesCart.orderBtn} onClick={() => setOrderActive(!orderActive)}>Zamów</button> : <p>Koszyk jest pusty</p>
         }
     </div>
+}
+
+Cart.propTypes = {
+    address: PropTypes.string,
+    city: PropTypes.string,
 }
 
 export default Cart;
