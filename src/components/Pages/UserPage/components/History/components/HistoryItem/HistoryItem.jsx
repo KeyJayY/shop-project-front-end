@@ -1,7 +1,33 @@
 import stylesHistoryItem from "./HistoryItem.module.scss"
 import PropTypes from "prop-types";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 function HistoryItem(props){
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(()=>{
+        if(!isExpanded) return;
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                const response = await axios.get(`/api/getOrderDetails/${props.id}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                setData(response.data);
+                console.log(response.data);
+            } catch (error) {
+                console.error("Error fetching order history", error);
+            }
+        };
+        setIsLoading(true);
+        fetchData();
+        setIsLoading(false);
+    }, [isExpanded]);
 
     const date = new Date(props.date);
 
@@ -12,14 +38,31 @@ function HistoryItem(props){
     });
 
     return <div className={stylesHistoryItem.historyItem}>
-        <p><strong>Data: </strong>{formattedDate}</p>
-        <p><strong>Kwota: </strong>{props.price}</p>
-        <p><strong>Status: </strong>{props.status}</p>
-        <p><strong>Kod: </strong>{props.code}</p>
+        <div className={stylesHistoryItem.main}>
+            <div>
+                <p><strong>Data: </strong>{formattedDate}</p>
+                <p><strong>Kwota: </strong>{props.price}</p>
+                <p><strong>Status: </strong>{props.status}</p>
+                <p><strong>Kod: </strong>{props.code}</p>
+            </div>
+            <button onClick={() => setIsExpanded(!isExpanded)}>{!isExpanded ? "rozwiń" : "zwiń"}</button>
+        </div>
+
+            {isExpanded && (
+                <div className={stylesHistoryItem.details}>
+                    <p>Produkty w zamówieniu:</p>
+                    <div className={stylesHistoryItem.detailItem} ><p>nazwa</p><p>ilość</p></div>
+                    {isLoading ? <div>loading</div> : data.map((item) => <div className={stylesHistoryItem.detailItem}
+                                                                              key={item.product_id}>
+                        <p>{item.product_name}</p> <p>{item.product_amount}</p></div>)}
+                </div>
+            )}
+
     </div>
 }
 
 HistoryItem.propTypes = {
+    id: PropTypes.number.isRequired,
     date: PropTypes.string,
     price: PropTypes.number,
     status: PropTypes.number,

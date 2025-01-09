@@ -52,11 +52,11 @@ function Cart(props) {
         {orderActive ?
             <form className={stylesCart.orderForm}>
                 <FormGroup type="text" name="address" label="adres dostawy" value={orderData.address}
-                           onChange={() => setOrderData({address: orderData.address, ...orderData})}/>
+                           onChange={(e) => setOrderData({...orderData, address: e.target.value})}/>
                 <FormGroup type="text" name="city" label="miasto" value={orderData.city}
-                           onChange={() => setOrderData({city: orderData.city, ...orderData})}/>
+                           onChange={(e) => setOrderData({...orderData, city: e.target.value})}/>
                 <FormGroup type="text" name="code" label="kod zniżkowy" value={orderData.code}
-                           onChange={() => setOrderData({code: orderData.code, ...orderData})}/>
+                           onChange={(e) => setOrderData({...orderData, code: e.target.value})}/>
                 <button className={stylesCart.orderBtn} onClick={handleOrder}>Zamów
                 </button>
             </form> :

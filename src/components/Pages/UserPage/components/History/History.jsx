@@ -14,7 +14,6 @@ function History(){
             }
         }).then(res => {
             setHistory(res.data);
-            console.log(res.data);
         })
     }
 
@@ -24,7 +23,7 @@ function History(){
 
     return <div className={stylesHistory.orderHistory}>
         <h2>Historia zamówień</h2>
-        {history.map((item) => <HistoryItem key={item.id} date={item.date} status={item.status} price={item.price} code={item.discount_percent}/>)}
+        {history.map((item) => <HistoryItem key={item.order_id} id={item.order_id} date={item.date} status={item.status} price={item.price} code={item.discount_percent}/>)}
     </div>
 }
 
