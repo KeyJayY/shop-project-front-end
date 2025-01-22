@@ -4,6 +4,7 @@ import CartItem from './components/CartItem'
 import stylesCart from './Cart.module.scss'
 import FormGroup from '@components/Common/FormGroup'
 import PropTypes  from "prop-types";
+import {useAlert} from "@src/AlertContext.jsx"
 
 function Cart(props) {
     const [cartItems, setCartItems] = useState([])
@@ -13,6 +14,9 @@ function Cart(props) {
         city: props.city,
         code: ""
     })
+    const [correctCode, setCorrectCode] = useState(false)
+
+    const {showAlert} = useAlert();
 
     const fetchData = () => {
         const token = localStorage.getItem('token')
@@ -22,11 +26,21 @@ function Cart(props) {
             })
     }
 
-    const handleOrder = () => {
+    const handleOrder = async (e) => {
+        e.preventDefault()
         const token = localStorage.getItem('token')
-        axios.put("/api/order",  orderData, {headers: {Authorization: `Bearer ${token}`}}).then(res => {
-            console.log(res)
-        })
+        if(!correctCode) orderData.code = null;
+        try{
+            await axios.put("/api/order",  orderData, {headers: {Authorization: `Bearer ${token}`}})
+            showAlert("dodano zamówienie" ,"success");
+            setOrderActive(false);
+            setCartItems([]);
+            if(props.onCartAction) props.onCartAction()
+            fetchData();
+        }catch (error){
+            console.log(error)
+            showAlert("nie udało się dodać zamówienia.", "error");
+        }
     }
 
     useEffect(() => {
@@ -44,6 +58,11 @@ function Cart(props) {
         }
     }
 
+    const checkCode = async (code) => {
+        const res = await axios.get(`/api/checkCode?code=${code}`)
+        res.data.message === "correct" ? setCorrectCode(true) : setCorrectCode(false);
+    }
+
     return <div className={stylesCart.cart}>
         <h2>Koszyk</h2>
         {cartItems.map((item) => (
@@ -56,7 +75,13 @@ function Cart(props) {
                 <FormGroup type="text" name="city" label="miasto" value={orderData.city}
                            onChange={(e) => setOrderData({...orderData, city: e.target.value})}/>
                 <FormGroup type="text" name="code" label="kod zniżkowy" value={orderData.code}
-                           onChange={(e) => setOrderData({...orderData, code: e.target.value})}/>
+                           onChange={(e) => {
+                               setOrderData({...orderData, code: e.target.value})
+                               console.log(e.target.value)
+                               checkCode(e.target.value);
+                           }
+                }/>
+                {correctCode ? "Poprawny kod" : "Niepoprawny kod"}
                 <button className={stylesCart.orderBtn} onClick={handleOrder}>Zamów
                 </button>
             </form> :
@@ -68,6 +93,7 @@ function Cart(props) {
 Cart.propTypes = {
     address: PropTypes.string,
     city: PropTypes.string,
+    onCartAction: PropTypes.func,
 }
 
 export default Cart;

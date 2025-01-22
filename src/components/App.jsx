@@ -2,11 +2,15 @@ import { Routes, Route } from 'react-router-dom';
 import MainPage from "./Pages/MainPage";
 import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
+import AdminLoginPage from "./Pages/AdminLoginPage";
+import AdminPanelPage from "./Pages/AdminPanelPage";
 import { AuthProvider, useAuth } from "@src/AuthProvider.jsx";
 import {useEffect, useState} from "react";
 import {verifyToken} from "@utils/verifyToken.js";
 import ProductPage from "./Pages/ProductPage";
 import UserPage from "./Pages/UserPage";
+import {AlertProvider} from "@src/AlertContext.jsx";
+import Alert from "./Common/Alert"
 
 function App() {
 
@@ -35,6 +39,8 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/userPage" element={<UserPage />} />
+            <Route path="/admin/login" element={<AdminLoginPage />} />
+            <Route path="/adminPanel" element={<AdminPanelPage />} />
         </Routes>
     );
 }
@@ -42,7 +48,10 @@ function App() {
 export default function Root(){
     return (
         <AuthProvider>
+        <AlertProvider>
+            <Alert/>
             <App/>
+        </AlertProvider>
         </AuthProvider>
     )
 };

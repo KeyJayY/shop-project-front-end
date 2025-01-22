@@ -4,12 +4,14 @@ import {useParams} from "react-router-dom";
 import {useState, useEffect} from "react";
 import axios from 'axios';
 import stylesProductPage from "./ProductPage.module.scss"
+import {useAlert} from "@src/AlertContext.jsx"
 
 function ProductPage() {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
     const [amount, setAmount] = useState(1);
     const { id } = useParams();
+    const {showAlert} = useAlert();
 
     useEffect( () => {
         const fetchData = async () => {
@@ -26,14 +28,21 @@ function ProductPage() {
 
     const addToCart = async () => {
         const token = localStorage.getItem("token");
-        await axios.post("/api/addToCart", {productId: id, amount},{
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
 
-        }).then(response => {
-            console.log(response);
-        })
+
+        try{
+            const response =await axios.post("/api/addToCart", {productId: id, amount},{
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+
+            })
+            if(response.status == 200)
+                showAlert("Dodano do koszyka!", "success");
+
+        } catch (error) {
+            showAlert("Produkt jest już w koszyku.", "error");
+        }
     }
 
     if(loading)
@@ -53,7 +62,7 @@ function ProductPage() {
                         </div>
                         <div className={stylesProductPage.price}>{data.price}</div>
                         <div className={stylesProductPage.description}>{data.description}</div>
-                        <span>{data.grade}/5</span>
+                        <div className={stylesProductPage.grade}>Ocena: {parseFloat(data.average_grade).toFixed(2)}/5</div>
                         <div className={stylesProductPage.quantityControls}>
                             <button onClick={() => {setAmount(Math.max(1, amount-1))}}>-</button>
                             <input type="text" className={stylesProductPage.quantity} value={amount} readOnly/>

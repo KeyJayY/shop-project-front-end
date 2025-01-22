@@ -14,6 +14,7 @@ function UserPage() {
     const [editing, setEditing] = useState(false);
     const [editedData, setEditedData] = useState({});
     const {isAuthenticated, loading: authLoading} = useAuth();
+    const [historyUpdateCounter, setHistoryUpdateCounter] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -101,9 +102,9 @@ function UserPage() {
                                 setEditedData(data)
                             }}>Edytuj</button>}
                     </div>
-                    <Cart address={data.address} city={data.address_city}/>
+                    <Cart address={data.address} city={data.address_city} onCartAction={() => setHistoryUpdateCounter(prev => prev + 1)} />
                 </div>
-                <History/>
+                <History updateTrigger={historyUpdateCounter} />
             </main>
         </>
     );

@@ -18,6 +18,10 @@
   max-width: 200px;
   border-radius: 8px;
 }
+.productHeader .grade {
+  width: 100%;
+  text-align: right;
+}
 
 .productDetails {
   flex-grow: 1;
