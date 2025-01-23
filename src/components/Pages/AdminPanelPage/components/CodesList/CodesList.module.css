@@ -1,0 +1,92 @@
+.codesList {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.codesList .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.codesList .addButton {
+  display: inline-block;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.codesList .addButton:hover {
+  background-color: #45a049;
+}
+.codesList .newCodeForm {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.codesList .newCodeForm h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.codesList .newCodeForm input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.codesList .newCodeForm .saveButton {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.codesList .newCodeForm .saveButton:hover {
+  background-color: #45a049;
+}
+.codesList .newCodeForm .cancelButton {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.codesList .newCodeForm .cancelButton:hover {
+  background-color: #e53935;
+}
+.codesList .table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.codesList .table th,
+.codesList .table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+.codesList .table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+.codesList .table .noData {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+/*# sourceMappingURL=CodesList.module.css.map */

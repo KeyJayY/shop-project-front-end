@@ -13,7 +13,7 @@ function HistoryItem(props){
         const fetchData = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`/api/getOrderDetails/${props.id}`, {
+                const response = await axios.get(`/api/user/getOrderDetails/${props.id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -57,7 +57,6 @@ function HistoryItem(props){
                         <p>{item.product_name}</p> <p>{item.product_amount}</p></div>)}
                 </div>
             )}
-
     </div>
 }
 

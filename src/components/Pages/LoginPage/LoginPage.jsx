@@ -22,11 +22,11 @@ function LoginPage() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/login', {
+            const response = await axios.post('/auth/login', {
                 username,
                 password,
             });
-            login(response.data.token); // Zalogowanie użytkownika, jeśli zapytanie zakończy się sukcesem
+            login(response.data.token);
         } catch (err) {
             if (err.response && err.response.status === 400) {
                 showAlert("Niepoprawny login lub hasło. Spróbuj ponownie.", "error");

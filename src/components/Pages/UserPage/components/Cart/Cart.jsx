@@ -20,7 +20,7 @@ function Cart(props) {
 
     const fetchData = () => {
         const token = localStorage.getItem('token')
-        axios.get("/api/cart", {headers: {Authorization: `Bearer ${token}`}})
+        axios.get("/api/user/cart", {headers: {Authorization: `Bearer ${token}`}})
             .then(res => {
                 setCartItems(res.data)
             })
@@ -31,7 +31,7 @@ function Cart(props) {
         const token = localStorage.getItem('token')
         if(!correctCode) orderData.code = null;
         try{
-            await axios.put("/api/order",  orderData, {headers: {Authorization: `Bearer ${token}`}})
+            await axios.put("/api/user/order",  orderData, {headers: {Authorization: `Bearer ${token}`}})
             showAlert("dodano zamówienie" ,"success");
             setOrderActive(false);
             setCartItems([]);
@@ -50,7 +50,7 @@ function Cart(props) {
     const removeItem = async (e) => {
         const id = e.target.getAttribute('data-id')
         const token = localStorage.getItem('token')
-        const response = await axios.delete(`/api/cart/${id}`, {headers: {Authorization: `Bearer ${token}`}})
+        const response = await axios.delete(`/api/user/cart/${id}`, {headers: {Authorization: `Bearer ${token}`}})
         if (response.status == 200) {
             fetchData();
         } else {
@@ -59,7 +59,7 @@ function Cart(props) {
     }
 
     const checkCode = async (code) => {
-        const res = await axios.get(`/api/checkCode?code=${code}`)
+        const res = await axios.get(`/api/user/checkCode?code=${code}`)
         res.data.message === "correct" ? setCorrectCode(true) : setCorrectCode(false);
     }
 

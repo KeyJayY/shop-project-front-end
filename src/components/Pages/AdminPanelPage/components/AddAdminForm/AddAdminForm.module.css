@@ -1,0 +1,61 @@
+.addAdminForm {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+.addAdminForm .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.addAdminForm form {
+  display: flex;
+  flex-direction: column;
+}
+.addAdminForm form .inputGroup {
+  margin-bottom: 15px;
+}
+.addAdminForm form .inputGroup label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+.addAdminForm form .inputGroup input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.addAdminForm form .inputGroup input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+.addAdminForm form .error {
+  color: #f44336;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.addAdminForm form .success {
+  color: #4caf50;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.addAdminForm form .submitButton {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+.addAdminForm form .submitButton:hover {
+  background-color: #45a049;
+}
+
+/*# sourceMappingURL=AddAdminForm.module.css.map */

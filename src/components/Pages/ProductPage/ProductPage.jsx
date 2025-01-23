@@ -31,7 +31,7 @@ function ProductPage() {
 
 
         try{
-            const response =await axios.post("/api/addToCart", {productId: id, amount},{
+            const response =await axios.post("/api/user/addToCart", {productId: id, amount},{
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

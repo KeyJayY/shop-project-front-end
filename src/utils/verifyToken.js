@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const verifyToken = async (token) => {
     try {
-        const response = await axios.get("/api/verifyToken", {
+        const response = await axios.get("/auth/verifyToken", {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

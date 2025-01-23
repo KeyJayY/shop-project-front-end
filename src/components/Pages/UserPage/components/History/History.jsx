@@ -9,7 +9,7 @@ function History(props){
 
     const fetchData = async () => {
         const token = localStorage.getItem('token')
-        axios.get("/api/getOrderHistory", {
+        axios.get("/api/user/getOrderHistory", {
             headers: {
                 Authorization: `Bearer ${token}`
             }

@@ -17,7 +17,7 @@ function CommentsBox(props) {
 
     const sendOpinion = async () => {
         const token = localStorage.getItem("token");
-        const response = await axios.post("/api/opinion/add", {"productId": props.id, "opinion": opinion, "grade": grade}, {
+        const response = await axios.post("/api/user/opinion/add", {"productId": props.id, "opinion": opinion, "grade": grade}, {
             headers: {
                 Authorization: `Bearer ${token}`,
             }

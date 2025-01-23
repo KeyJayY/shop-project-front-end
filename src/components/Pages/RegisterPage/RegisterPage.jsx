@@ -32,7 +32,7 @@ function RegisterPage() {
 
         if (formData.password === confirmPassword) {
             try {
-                const result = await axios.post("/register", dataToSend);
+                const result = await axios.post("/auth/register", dataToSend);
 
                 if (result.status === 200) {
                     navigate('/login');

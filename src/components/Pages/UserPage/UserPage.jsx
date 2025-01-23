@@ -21,11 +21,12 @@ function UserPage() {
         const fetchData = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response = await axios.get(`/api/UserData`, {
+                const response = await axios.get(`/api/user/UserData`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                 });
+                console.log(response.data)
                 setData(response.data);
             } catch (e) {
                 console.error(e);
@@ -55,11 +56,16 @@ function UserPage() {
     const handleSave = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
-        const result = await axios.put("/api/changeUserData", editedData, {
+        const result = await axios.put("/api/user/changeUserData", editedData, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         });
+        if(result.status === 200){
+            setData(editedData)
+            setEditing(false)
+        }
+
     }
 
     return (
