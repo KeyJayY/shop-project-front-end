@@ -48,8 +48,8 @@ function Cart(props) {
     }, [])
 
     const removeItem = async (e) => {
-        const id = e.target.getAttribute('data-id')
         const token = localStorage.getItem('token')
+        const id = e.target.getAttribute('data-id')
         const response = await axios.delete(`/api/user/cart/${id}`, {headers: {Authorization: `Bearer ${token}`}})
         if (response.status == 200) {
             fetchData();
@@ -59,7 +59,8 @@ function Cart(props) {
     }
 
     const checkCode = async (code) => {
-        const res = await axios.get(`/api/user/checkCode?code=${code}`)
+        const token = localStorage.getItem('token')
+        const res = await axios.get(`/api/user/checkCode?code=${code}`, {headers: {Authorization: `Bearer ${token}`}})
         res.data.message === "correct" ? setCorrectCode(true) : setCorrectCode(false);
     }
 
