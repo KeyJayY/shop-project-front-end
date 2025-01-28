@@ -62,7 +62,7 @@ function Cart(props) {
     const checkCode = async (code) => {
         const token = localStorage.getItem('token')
         const res = await axios.get(`/api/user/checkCode?code=${code}`, {headers: {Authorization: `Bearer ${token}`}})
-        res.data.message === "correct" ? setCorrectCode(true) : setCorrectCode(false);
+        res.data.message === "Correct code" ? setCorrectCode(true) : setCorrectCode(false);
     }
 
     return <div className={stylesCart.cart}>
@@ -82,6 +82,7 @@ function Cart(props) {
                                checkCode(e.target.value);
                            }
                 }/>
+
                 {correctCode ? "Poprawny kod" : "Niepoprawny kod"}
                 <button className={stylesCart.orderBtn} onClick={handleOrder}>Zamów
                 </button>
