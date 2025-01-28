@@ -56,4 +56,13 @@
   overflow-y: auto; /* Add scroll if the content overflows vertically */
 }
 
+.clicked {
+  background-color: #007bff;
+}
+
+.clicked:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
 /*# sourceMappingURL=AdminPanelPage.module.css.map */

@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './CodesList.module.scss';
-import {useAlert} from "@src/AlertContext.jsx"
+import { useAlert } from "@src/AlertContext.jsx";
 
 function CodesList() {
     const [codes, setCodes] = useState([]);
     const [newCode, setNewCode] = useState(null);
     const [refresh, setRefresh] = useState(false);
 
-    const {showAlert} = useAlert();
+    const { showAlert } = useAlert();
 
     const token = localStorage.getItem('adminToken');
 
@@ -20,7 +20,7 @@ function CodesList() {
                 });
                 setCodes(response.data);
             } catch (error) {
-                console.error('Error fetching codes:', error);
+                console.error('Błąd podczas pobierania kodów:', error);
             }
         };
         fetchCodes();
@@ -39,29 +39,29 @@ function CodesList() {
             setNewCode(null);
             setRefresh((prev) => !prev);
         } catch (error) {
-            if(error.response.status == 409)
-                showAlert("kod o podanej nazwie jest już w bazie danych", "error")
+            if (error.response.status === 409)
+                showAlert("Kod o podanej nazwie już istnieje w bazie danych", "error");
             else
-                console.error('Error fetching codes:', error);
+                console.error('Błąd podczas dodawania kodu:', error);
         }
     };
 
     return (
         <div className={styles.codesList}>
-            <h2 className={styles.title}>Codes List</h2>
+            <h2 className={styles.title}>Lista kodów</h2>
             <button
                 className={styles.addButton}
                 onClick={() => setNewCode({ code: '', discount_percent: '' })}
             >
-                Add New Code
+                Dodaj nowy kod
             </button>
             {newCode && (
                 <div className={styles.newCodeForm}>
-                    <h3>Add New Code</h3>
+                    <h3>Dodaj nowy kod</h3>
                     <input
                         type="text"
                         name="code"
-                        placeholder="Code"
+                        placeholder="Kod"
                         value={newCode.code}
                         onChange={handleInputChange}
                         required
@@ -69,25 +69,25 @@ function CodesList() {
                     <input
                         type="number"
                         name="discount_percent"
-                        placeholder="Discount Percent"
+                        placeholder="Procent zniżki"
                         value={newCode.discount_percent}
                         onChange={handleInputChange}
                         required
                     />
                     <button className={styles.saveButton} onClick={handleAddNewCode}>
-                        Save Code
+                        Zapisz kod
                     </button>
                     <button className={styles.cancelButton} onClick={() => setNewCode(null)}>
-                        Cancel
+                        Anuluj
                     </button>
                 </div>
             )}
             <table className={styles.table}>
                 <thead>
                 <tr>
-                    <th>Code</th>
-                    <th>Discount Percent</th>
-                    <th>Admin ID</th>
+                    <th>Kod</th>
+                    <th>Procent zniżki</th>
+                    <th>ID administratora</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -102,7 +102,7 @@ function CodesList() {
                 ) : (
                     <tr>
                         <td colSpan="3" className={styles.noData}>
-                            No codes found.
+                            Nie znaleziono kodów.
                         </td>
                     </tr>
                 )}

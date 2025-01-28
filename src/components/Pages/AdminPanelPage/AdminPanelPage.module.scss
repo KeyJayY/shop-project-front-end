@@ -55,3 +55,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow-y: auto; /* Add scroll if the content overflows vertically */
 }
+
+.clicked{
+  background-color: #007bff;
+}
+
+.clicked:hover{
+  background-color: #ffffff;
+  color: black;
+}

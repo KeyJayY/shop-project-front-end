@@ -54,13 +54,13 @@ function ProductPage() {
         <Header />
             <main className={stylesProductPage.productContainer}>
                 <header className={stylesProductPage.productHeader}>
-                    <img src={"https://via.placeholder.com/200"} alt={"zdjecie produktu"}/>
+                    <img src={`/image/${id}`} alt={"zdjecie produktu"}/>
                     <div className={stylesProductPage.productDetails}>
                         <h1>{data.name}</h1>
                         <div className={stylesProductPage.category}>
                             {data.category}
                         </div>
-                        <div className={stylesProductPage.price}>{data.price}</div>
+                        <div className={stylesProductPage.price}>{data.price / 100} zł</div>
                         <div className={stylesProductPage.description}>{data.description}</div>
                         <div className={stylesProductPage.grade}>Ocena: {parseFloat(data.average_grade).toFixed(2)}/5</div>
                         <div className={stylesProductPage.quantityControls}>

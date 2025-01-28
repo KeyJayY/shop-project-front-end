@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import Comment from "./components/Comment";
 import stylesCommentsBox from "./CommentsBox.module.scss"
 import axios from "axios";
+import {useAlert} from "@src/AlertContext.jsx";
 
 function CommentsBox(props) {
     const [comments, setComments] = useState([])
     const [opinion, setOpinion] = useState("")
     const [grade, setGrade] = useState(5)
+    const {showAlert} = useAlert();
 
     const fetchData = async () => {
         fetch(`/api/opinions/${props.id}`).then(res => res.json()).then((data) => {
@@ -17,14 +19,25 @@ function CommentsBox(props) {
 
     const sendOpinion = async () => {
         const token = localStorage.getItem("token");
-        const response = await axios.post("/api/user/opinion/add", {"productId": props.id, "opinion": opinion, "grade": grade}, {
-            headers: {
-                Authorization: `Bearer ${token}`,
+        try{
+            const response = await axios.post("/api/user/opinion/add", {"productId": props.id, "opinion": opinion, "grade": grade}, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            })
+            if(response.status == 200)
+                await fetchData();
+        } catch(error)
+            {
+                console.log(error)
+
+                if (error.response.status == 401) {
+                    showAlert("nie jesteś zalogowany", "error")
+                } else (
+                    showAlert("każdy użytkowik może dodać tylko jedną opinię", "error")
+                )
             }
-        })
-        if(response.status == 200){
-            await fetchData();
-        }
+
     }
 
     useEffect(() => {

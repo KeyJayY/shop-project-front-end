@@ -7,9 +7,9 @@ function StoreItem(props) {
 
     return (
         <div className={styleStoreItem.storeItem}>
-            <img alt={props.product.name} src="https://via.placeholder.com/200" />
+            <img alt={props.product.name} src={`/image/${props.product.product_id}`} />
             <h3 className={styleStoreItem.productTitle}>{props.product.name}</h3>
-            <p className={styleStoreItem.productPrice} onClick={() => {showAlert("test")}}>{props.product.price}</p>
+            <p className={styleStoreItem.productPrice} onClick={() => {showAlert("test")}}>{props.product.price / 100} zł</p>
             <a href={`/product/${props.product.product_id}`}>
                 <button className={styleStoreItem.productButton}>KUP
             </button>

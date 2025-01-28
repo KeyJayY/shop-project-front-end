@@ -19,7 +19,6 @@ function HistoryItem(props){
                     },
                 });
                 setData(response.data);
-                console.log(response.data);
             } catch (error) {
                 console.error("Error fetching order history", error);
             }
@@ -41,9 +40,9 @@ function HistoryItem(props){
         <div className={stylesHistoryItem.main}>
             <div>
                 <p><strong>Data: </strong>{formattedDate}</p>
-                <p><strong>Kwota: </strong>{props.price}</p>
+                <p><strong>Kwota: </strong>{(props.price / 100).toFixed(2)} zł</p>
                 <p><strong>Status: </strong>{props.status}</p>
-                <p><strong>Kod: </strong>{props.code}</p>
+                <p><strong>Zniżka: </strong>{props.code ? props.code : 0}%</p>
             </div>
             <button onClick={() => setIsExpanded(!isExpanded)}>{!isExpanded ? "rozwiń" : "zwiń"}</button>
         </div>

@@ -55,6 +55,7 @@ function Cart(props) {
             fetchData();
         } else {
             console.log('error')
+            showAlert("nie udało się usunąć przedmiotu.", "error");
         }
     }
 
@@ -78,7 +79,6 @@ function Cart(props) {
                 <FormGroup type="text" name="code" label="kod zniżkowy" value={orderData.code}
                            onChange={(e) => {
                                setOrderData({...orderData, code: e.target.value})
-                               console.log(e.target.value)
                                checkCode(e.target.value);
                            }
                 }/>

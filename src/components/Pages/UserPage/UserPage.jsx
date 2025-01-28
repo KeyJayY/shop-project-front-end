@@ -26,7 +26,6 @@ function UserPage() {
                         Authorization: `Bearer ${token}`,
                     },
                 });
-                console.log(response.data)
                 setData(response.data);
             } catch (e) {
                 console.error(e);

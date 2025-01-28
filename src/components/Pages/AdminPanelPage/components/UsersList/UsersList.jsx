@@ -6,13 +6,13 @@ function UsersList() {
     const [users, setUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const pageSize = 50; // Number of users per page
+    const pageSize = 50; // Liczba użytkowników na stronę
 
     useEffect(() => {
         const fetchUsers = async () => {
-            const token = localStorage.getItem('adminToken'); // Get admin token
+            const token = localStorage.getItem('adminToken'); // Pobierz token administratora
             if (!token) {
-                console.error('Admin token is missing!');
+                console.error('Brakuje tokenu administratora!');
                 return;
             }
 
@@ -23,7 +23,7 @@ function UsersList() {
                 setUsers(response.data.users);
                 setTotalPages(Math.ceil(response.data.total / pageSize));
             } catch (error) {
-                console.error('Error fetching users:', error);
+                console.error('Błąd podczas pobierania użytkowników:', error);
             }
         };
         fetchUsers();
@@ -42,17 +42,17 @@ function UsersList() {
 
     return (
         <div className={styles.usersList}>
-            <h2 className={styles.title}>Users List</h2>
+            <h2 className={styles.title}>Lista użytkowników</h2>
             <table className={styles.table}>
                 <thead>
                 <tr>
-                    <th>User ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>ID Użytkownika</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
                     <th>Email</th>
-                    <th>Address</th>
-                    <th>Address City</th>
-                    <th>Birth Date</th>
+                    <th>Adres</th>
+                    <th>Miasto</th>
+                    <th>Data urodzenia</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -71,7 +71,7 @@ function UsersList() {
                 ) : (
                     <tr>
                         <td colSpan="7" className={styles.noData}>
-                            No users found.
+                            Nie znaleziono użytkowników.
                         </td>
                     </tr>
                 )}
@@ -83,17 +83,17 @@ function UsersList() {
                     disabled={currentPage === 1}
                     className={styles.pageButton}
                 >
-                    Previous
+                    Poprzednia
                 </button>
                 <span className={styles.pageInfo}>
-                    Page {currentPage} of {totalPages}
+                    Strona {currentPage} z {totalPages}
                 </span>
                 <button
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
                     className={styles.pageButton}
                 >
-                    Next
+                    Następna
                 </button>
             </div>
         </div>

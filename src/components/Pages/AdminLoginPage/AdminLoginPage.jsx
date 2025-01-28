@@ -23,13 +23,13 @@ function AdminLoginPage() {
 
     return (
         <div className={styles.loginPage}>
-            <h2 className={styles.title}>Login to Admin Panel</h2>
+            <h2 className={styles.title}>Logowanie do Panelu Admina</h2>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <input
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
+                    placeholder="Login"
                     required
                     className={styles.input}
                 />
@@ -37,7 +37,7 @@ function AdminLoginPage() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
+                    placeholder="Hasło"
                     required
                     className={styles.input}
                 />

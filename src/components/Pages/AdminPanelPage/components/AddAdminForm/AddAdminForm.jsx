@@ -38,10 +38,10 @@ function AddAdminForm() {
 
     return (
         <div className={styles.addAdminForm}>
-            <h2 className={styles.title}>Add New Admin</h2>
+            <h2 className={styles.title}>Dodaj nowego admina</h2>
             <form onSubmit={handleSubmit}>
                 <div className={styles.inputGroup}>
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username">Nazwa</label>
                     <input
                         type="text"
                         id="username"
@@ -53,7 +53,7 @@ function AddAdminForm() {
                     />
                 </div>
                 <div className={styles.inputGroup}>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Hasło</label>
                     <input
                         type="password"
                         id="password"

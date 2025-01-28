@@ -20,10 +20,9 @@ function ProductsList() {
                 });
                 const productsPerPage = 50;
                 setProducts(response.data.products);
-                console.log(response.data)
                 setTotalPages(Math.ceil(response.data.total/productsPerPage));
             } catch (error) {
-                console.error('Error fetching products:', error);
+                console.error('Błąd podczas pobierania produktów:', error);
             }
         };
         fetchProducts();
@@ -42,12 +41,11 @@ function ProductsList() {
             setNewProduct(null);
             setRefresh((prev) => !prev);
         } catch (error) {
-            console.error('Error adding product:', error);
+            console.error('Błąd podczas dodawania produktu:', error);
         }
     };
 
     const handleEditProduct = async (product) => {
-        console.log(token)
         try {
             await axios.put(`/api/admin/updateProduct/${product.product_id}`, product, {
                 headers: { Authorization: `Bearer ${token}` },
@@ -55,7 +53,7 @@ function ProductsList() {
             setEditingProduct(null);
             setRefresh((prev) => !prev);
         } catch (error) {
-            console.error('Error updating product:', error);
+            console.error('Błąd podczas aktualizacji produktu:', error);
         }
     };
 
@@ -66,7 +64,7 @@ function ProductsList() {
             });
             setRefresh((prev) => !prev);
         } catch (error) {
-            console.error('Error changing active status:', error);
+            console.error('Błąd podczas zmiany statusu aktywności:', error);
         }
     };
 
@@ -78,62 +76,62 @@ function ProductsList() {
 
     return (
         <div className={styles.productsList}>
-            <h2 className={styles.title}>Products List</h2>
+            <h2 className={styles.title}>Lista produktów</h2>
             <button
                 className={styles.addButton}
                 onClick={() =>
                     setNewProduct({ name: '', category: '', price: '', description: '' })
                 }
             >
-                Add New Product
+                Dodaj nowy produkt
             </button>
             {newProduct && (
                 <div className={styles.newProductForm}>
-                    <h3>Add New Product</h3>
+                    <h3>Dodaj nowy produkt</h3>
                     <input
                         type="text"
                         name="name"
-                        placeholder="Name"
+                        placeholder="Nazwa"
                         value={newProduct.name}
                         onChange={(e) => handleInputChange(e, setNewProduct)}
                     />
                     <input
                         type="text"
                         name="category"
-                        placeholder="Category"
+                        placeholder="Kategoria"
                         value={newProduct.category}
                         onChange={(e) => handleInputChange(e, setNewProduct)}
                     />
                     <input
                         type="number"
                         name="price"
-                        placeholder="Price"
+                        placeholder="Cena"
                         value={newProduct.price}
                         onChange={(e) => handleInputChange(e, setNewProduct)}
                     />
                     <textarea
                         name="description"
-                        placeholder="Description"
+                        placeholder="Opis"
                         value={newProduct.description}
                         onChange={(e) => handleInputChange(e, setNewProduct)}
                     ></textarea>
                     <button className={styles.saveButton} onClick={handleAddNewProduct}>
-                        Save Product
+                        Zapisz produkt
                     </button>
                     <button className={styles.cancelButton} onClick={() => setNewProduct(null)}>
-                        Cancel
+                        Anuluj
                     </button>
                 </div>
             )}
             <table className={styles.table}>
                 <thead>
                 <tr>
-                    <th>Product ID</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                    <th>Actions</th>
+                    <th>ID Produktu</th>
+                    <th>Nazwa</th>
+                    <th>Kategoria</th>
+                    <th>Cena</th>
+                    <th>Opis</th>
+                    <th>Akcje</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -183,13 +181,13 @@ function ProductsList() {
                                             className={styles.saveButton}
                                             onClick={() => handleEditProduct(editingProduct)}
                                         >
-                                            Save
+                                            Zapisz
                                         </button>
                                         <button
                                             className={styles.cancelButton}
                                             onClick={() => setEditingProduct(null)}
                                         >
-                                            Cancel
+                                            Anuluj
                                         </button>
                                     </td>
                                 </>
@@ -198,7 +196,7 @@ function ProductsList() {
                                     <td>{product.product_id}</td>
                                     <td>{product.name}</td>
                                     <td>{product.category}</td>
-                                    <td>{product.price}</td>
+                                    <td>{(product.price / 100).toFixed(2)}</td>
                                     <td>{product.description}</td>
                                     <td>
                                         {product.active ? (
@@ -207,7 +205,7 @@ function ProductsList() {
                                                     className={styles.editButton}
                                                     onClick={() => setEditingProduct(product)}
                                                 >
-                                                    Edit
+                                                    Edytuj
                                                 </button>
                                                 <button
                                                     className={styles.deleteButton}
@@ -218,7 +216,7 @@ function ProductsList() {
                                                         )
                                                     }
                                                 >
-                                                    Delete
+                                                    Usuń
                                                 </button>
                                             </>
                                         ) : (
@@ -231,7 +229,7 @@ function ProductsList() {
                                                     )
                                                 }
                                             >
-                                                Restore
+                                                Przywróć
                                             </button>
                                         )}
                                     </td>
@@ -242,7 +240,7 @@ function ProductsList() {
                 ) : (
                     <tr>
                         <td colSpan="6" className={styles.noData}>
-                            No products found.
+                            Brak produktów.
                         </td>
                     </tr>
                 )}
@@ -254,17 +252,17 @@ function ProductsList() {
                     disabled={currentPage === 1}
                     onClick={() => handlePageChange(currentPage - 1)}
                 >
-                    Previous
+                    Poprzednia
                 </button>
                 <span>
-                    Page {currentPage} of {totalPages}
+                    Strona {currentPage} z {totalPages}
                 </span>
                 <button
                     className={styles.pageButton}
                     disabled={currentPage === totalPages}
                     onClick={() => handlePageChange(currentPage + 1)}
                 >
-                    Next
+                    Następna
                 </button>
             </div>
         </div>

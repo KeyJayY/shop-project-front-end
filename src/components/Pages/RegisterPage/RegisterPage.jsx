@@ -46,7 +46,7 @@ function RegisterPage() {
                 }
             }
         } else {
-            alert("Passwords do not match. Please check your input.");
+            showAlert("Passwords do not match. Please check your input.", "error");
         }
     };
 

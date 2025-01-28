@@ -5,7 +5,7 @@ function CartItem(props) {
     return <div className={stylesCartItem.cartItem}>
         <span>{props.productName}</span>
         <span className={stylesCartItem.amount}>{props.amount}</span>
-        <span className={stylesCartItem.price}>{props.productPrice * props.amount}</span>
+        <span className={stylesCartItem.price}>{props.productPrice * props.amount / 100} zł</span>
         <span className={stylesCartItem.remove} onClick={props.onClick} data-id={props.productId}>usuń</span>
     </div>
 }

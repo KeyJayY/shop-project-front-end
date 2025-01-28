@@ -10,13 +10,13 @@ import {useAlert} from "@src/AlertContext.jsx"
 function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState(''); // Stan do przechowywania komunikatu o błędzie
+    const [errorMessage, setErrorMessage] = useState('');
     const {isAuthenticated, login} = useAuth();
 
     const {showAlert} = useAlert();
 
     if (isAuthenticated) {
-        return <Navigate to="/"/>; // Przekierowanie, jeśli użytkownik jest zalogowany
+        return <Navigate to="/"/>;
     }
 
     const handleLogin = async (e) => {
@@ -44,7 +44,6 @@ function LoginPage() {
                 <div className={stylesLoginPage.loginContainer}>
                     <form className={stylesLoginPage.loginForm} onSubmit={handleLogin}>
                         <h2 className={stylesLoginPage.formTitle}>Logowanie</h2>
-                        {/* Komunikat o błędzie */}
                         {errorMessage && <p className={stylesLoginPage.errorMessage}>{errorMessage}</p>}
                         <FormGroup type="text" name="login" label="Email" value={username}
                                    onChange={(e) => setUsername(e.target.value)}/>
