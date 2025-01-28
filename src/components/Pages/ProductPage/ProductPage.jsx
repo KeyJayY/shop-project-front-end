@@ -62,11 +62,19 @@ function ProductPage() {
                         </div>
                         <div className={stylesProductPage.price}>{data.price / 100} zł</div>
                         <div className={stylesProductPage.description}>{data.description}</div>
-                        <div className={stylesProductPage.grade}>Ocena: {parseFloat(data.average_grade).toFixed(2)}/5</div>
+                        <div className={stylesProductPage.grade}>
+                            Ocena: {!isNaN(parseFloat(data.average_grade)) ? parseFloat(data.average_grade).toFixed(2) : "?"}/5
+                        </div>
                         <div className={stylesProductPage.quantityControls}>
-                            <button onClick={() => {setAmount(Math.max(1, amount-1))}}>-</button>
+                            <button onClick={() => {
+                                setAmount(Math.max(1, amount - 1))
+                            }}>-
+                            </button>
                             <input type="text" className={stylesProductPage.quantity} value={amount} readOnly/>
-                            <button onClick={() => {setAmount(Math.min(amount+1, 999))}}>+</button>
+                            <button onClick={() => {
+                                setAmount(Math.min(amount + 1, 999))
+                            }}>+
+                            </button>
                         </div>
                         <button className={stylesProductPage.addToCart} onClick={addToCart}>Dodaj do koszyka</button>
                     </div>

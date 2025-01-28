@@ -136,7 +136,7 @@
 .productsList .editButton:hover {
   background-color: #e69500;
 }
-.productsList .deleteButton {
+.productsList .deleteButton, .productsList .cancelButton {
   background-color: #f44336;
   color: #fff;
   border: none;
@@ -146,10 +146,10 @@
   font-size: 14px;
   margin: 3px;
 }
-.productsList .deleteButton:hover {
+.productsList .deleteButton:hover, .productsList .cancelButton:hover {
   background-color: #e53935;
 }
-.productsList .restoreButton {
+.productsList .restoreButton, .productsList .saveButton {
   background-color: #4caf50;
   color: #fff;
   border: none;
@@ -158,8 +158,35 @@
   cursor: pointer;
   font-size: 14px;
 }
-.productsList .restoreButton:hover {
+.productsList .restoreButton:hover, .productsList .saveButton:hover {
   background-color: #45a049;
+}
+
+.saveButton {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.saveButton:hover {
+  background-color: #45a049;
+}
+
+.cancelButton {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.cancelButton:hover {
+  background-color: #e53935;
 }
 
 /*# sourceMappingURL=ProductsList.module.css.map */

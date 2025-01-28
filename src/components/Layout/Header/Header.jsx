@@ -6,7 +6,7 @@ import {useAuth} from "@src/AuthProvider.jsx";
 function Header({userBar}) {
     const {isAuthenticated, logout} = useAuth();
     return (<header className={stylesHeader.header}>
-        <h1 className={stylesHeader.title}><a href={"/"}>My App</a></h1>
+        <h1 className={stylesHeader.title}><a href={"/"}>Sklep Online</a></h1>
         {userBar ? <div className={stylesHeader.headerButtons}>
             {!isAuthenticated ? <><a href={"/login"}>
                 <button>zaloguj</button>

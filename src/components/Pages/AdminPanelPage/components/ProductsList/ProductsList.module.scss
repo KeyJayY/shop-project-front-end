@@ -160,7 +160,7 @@
     }
   }
 
-  .deleteButton {
+  .deleteButton, .cancelButton {
     background-color: #f44336;
     color: #fff;
     border: none;
@@ -175,7 +175,7 @@
     }
   }
 
-  .restoreButton {
+  .restoreButton, .saveButton {
     background-color: #4caf50;
     color: #fff;
     border: none;
@@ -188,4 +188,36 @@
       background-color: #45a049;
     }
   }
+
 }
+
+.saveButton {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #45a049;
+  }
+}
+
+.cancelButton {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+
+  &:hover {
+    background-color: #e53935;
+  }
+}
+
+
