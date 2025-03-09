@@ -34,3 +34,6 @@ The application is designed to work with the corresponding backend. Ensure that 
 ## Notes
 This project was developed as part of a university course on databases. It provides a functional and interactive interface for an online store, offering a smooth shopping experience.
 
+## backend
+https://github.com/KeyJayY/shop-project-backend
+
