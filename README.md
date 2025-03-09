@@ -1,6 +1,6 @@
 # Online Store Frontend
 
-This is a React application developed as a final project for a university course on databases. The frontend provides a user-friendly interface for browsing products, managing a shopping cart, placing orders, and handling user authentication. The application is built using React and styled with SCSS for a modern and responsive design.
+This is a React application developed as a final project for a university course on databases. The frontend provides a user-friendly interface for browsing products, managing a shopping cart, placing orders, and handling user authentication. The application is built using React and styled with SCSS.
 
 ## Features
 - **User Authentication**: Register, log in, and manage user sessions.
@@ -10,7 +10,13 @@ This is a React application developed as a final project for a university course
 - **Admin Panel**: Manage products and orders (admin users only).
 
 ## Demo
-
+![1.png](pictures/1.png)
+![2.png](pictures/2.png)
+![3.png](pictures/3.png)
+![4.png](pictures/4.png)
+![5.png](pictures/5.png)
+![6.png](pictures/6.png)
+![7.png](pictures/7.png)
 
 ## Usage
 1. Clone the repository.
